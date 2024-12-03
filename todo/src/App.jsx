@@ -1,7 +1,7 @@
-import { useState } from 'react'
-import ToDo from './components/ToDo';
-import ToDoForm from './components/ToDoForm';
-import './App.css'
+import { useState } from "react";
+import ToDo from "./components/ToDo";
+import ToDoForm from "./components/ToDoForm";
+import "./App.css";
 
 function App() {
   const [todos, setTodos] = useState([
@@ -9,15 +9,29 @@ function App() {
       id: 1,
       text: "Terminar a ToDo List com React",
       category: "Estudos",
-      completed: false
+      completed: false,
     },
     {
       id: 2,
       text: "Jogar Wild Rift com amigo",
       category: "Pessoal",
-      completed: false
-    }
+      completed: false,
+    },
   ]);
+
+  const addToDo = (text, category) => {
+    const newTodos = [
+      ...todos, 
+      {
+        id: Math.floor(Math.random() * 10000),
+        text,
+        category,
+        completed: false
+      }
+    ];
+
+    setTodos(newTodos);
+  };
 
   return (
     <div>
@@ -27,7 +41,7 @@ function App() {
           <ToDo key={todo.id} todo={todo} />
         ))}
       </div>
-      <ToDoForm />
+      <ToDoForm addToDo={addToDo} />
     </div>
   );
 }
