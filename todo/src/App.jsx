@@ -9,27 +9,43 @@ function App() {
       id: 1,
       text: "Terminar a ToDo List com React",
       category: "Estudos",
-      completed: false,
+      isCompleted: false,
     },
     {
       id: 2,
       text: "Jogar Wild Rift com amigo",
       category: "Pessoal",
-      completed: false,
+      isCompleted: false,
     },
   ]);
 
   const addToDo = (text, category) => {
     const newTodos = [
-      ...todos, 
+      ...todos,
       {
         id: Math.floor(Math.random() * 10000),
         text,
         category,
-        completed: false
-      }
+        completed: false,
+      },
     ];
 
+    setTodos(newTodos);
+  };
+
+  const removeToDo = (id) => {
+    const newTodos = [...todos];
+    const filteredTodos = newTodos.filter((todo) =>
+      todo.id !== id ? todo : null
+    );
+    setTodos(filteredTodos);
+  };
+
+  const completeToDo = (id) => {
+    const newTodos = [...todos];
+    newTodos.map((todo) =>
+      todo.id === id ? (todo.isCompleted = !todo.isCompleted) : todo
+    );
     setTodos(newTodos);
   };
 
@@ -38,7 +54,12 @@ function App() {
       <h1>Just do it.</h1>
       <div className="todo-list">
         {todos.map((todo) => (
-          <ToDo key={todo.id} todo={todo} />
+          <ToDo
+            key={todo.id}
+            todo={todo}
+            removeToDo={removeToDo}
+            completeToDo={completeToDo}
+          />
         ))}
       </div>
       <ToDoForm addToDo={addToDo} />
