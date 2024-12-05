@@ -3,6 +3,7 @@ import { useState } from "react";
 import ToDo from "./components/ToDo";
 import ToDoForm from "./components/ToDoForm";
 import Search from "./components/Search";
+import Filter from "./components/Filter";
 
 import "./App.css";
 
@@ -23,6 +24,8 @@ function App() {
   ]);
 
   const [search, setSearch] = useState("");
+
+  const [filter, setFilter] = useState("All");
 
   const addToDo = (text, category) => {
     const newTodos = [
@@ -58,8 +61,16 @@ function App() {
     <div>
       <h1>Just do it.</h1>
       <Search search={search} setSearch={setSearch} />
+      <Filter filter={filter} setFilter={setFilter} />
       <div className="todo-list">
         {todos
+          .filter((todo) =>
+            filter === "All"
+              ? true
+              : filter === "Completed"
+              ? todo.isCompleted
+              : !todo.isCompleted
+          )
           .filter((todo) =>
             todo.text.toLowerCase().includes(search.toLowerCase())
           )
