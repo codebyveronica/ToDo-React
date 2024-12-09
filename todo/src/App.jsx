@@ -61,9 +61,9 @@ function App() {
 
   return (
     <div>
-      <h1>Just do it.</h1>
+      <h1>TO DO</h1>
       <Search search={search} setSearch={setSearch} />
-      <Filter filter={filter} setFilter={setFilter} setSort={setSort} />
+      
       <div className="todo-list">
         {todos
           .filter((todo) =>
@@ -90,6 +90,7 @@ function App() {
             />
           ))}
       </div>
+      <Filter filter={filter} setFilter={setFilter} setSort={setSort} />
       <ToDoForm addToDo={addToDo} />
     </div>
   );

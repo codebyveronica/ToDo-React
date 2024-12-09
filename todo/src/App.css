@@ -1,4 +1,11 @@
 :root {
+  --color01: #6B65C0;
+  --color02: #6B6896;
+  --color03: #5D54EB;
+  --color04: #5D5C6B;
+  --color05: #333241;
+  --color06: #201F33;
+
   --font: "Poppins", sans-serif;
 }
 
@@ -10,4 +17,182 @@
 
 html {
   font-family: var(--font);
+}
+
+body {
+  background-color: var(--color05);
+  color: white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0 1.5em;
+  margin: 4em 0 2em;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+
+h2 {
+  font-weight: 400;
+}
+
+label {
+  color: var(--color04);
+  font-size: .8rem;
+}
+
+input {
+  background-color: var(--color06);
+  color: white;
+  padding: 1em;
+  width: 100%;
+  outline: none;
+  border: none;
+  border-radius: .5em;
+}
+
+.todo-list {
+  background-color: var(--color06);
+  padding: 0 1em 1.5em;
+  border-radius: .5em;
+  margin: 2em 0 1em;
+}
+
+.todo-list:nth-last-child(n) {
+  border-top: .03em solid var(--color03);
+}
+
+.todo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.25em;
+  padding: 1.5em 0 0;
+}
+
+.todo .category {
+  font-size: .6rem;
+  font-weight: 200;
+}
+
+.todo .buttons {
+  display: flex;
+  gap: .5em;
+}
+
+.todo .buttons button {
+  background-color: var(--color03);
+  color: white;
+  padding: .5em;
+  border: none;
+  border-radius: 50%;
+}
+
+.filter {
+  margin-bottom: 2em;
+}
+
+.filter-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+select {
+  background-color: var(--color03);
+  color: white;
+  font-family: var(--font);
+  font-weight: 500;
+  padding: .5em;
+  outline: none;
+  border: none;
+  border-radius: .5em;
+}
+
+.filter-options .filter-buttons {
+  display: flex;
+  gap: .5em;
+}
+
+.filter-options button {
+  background-color: var(--color03);
+  color: white;
+  font-family: var(--font);
+  font-weight: 500;
+  padding: .5em;
+  border: none;
+  border-radius: .5em;
+}
+
+.todo-form h2 {
+  font-size: 1.25rem;
+  margin-bottom: .5em;
+}
+
+.todo-form input {
+  font-family: var(--font);
+  color: white;
+  margin-bottom: .5em;
+}
+
+.todo-form select {
+  background-color: var(--color03);
+  padding: .75em;
+}
+
+.todo-form button {
+  display: inline-block;
+  background-color: var(--color03);
+  color: white;
+  margin-left: .5em;
+  padding: .75em;
+  border: none;
+  border-radius: 50%;
+}
+
+@media screen and (min-width: 376px) {
+  input {
+    display: block;
+    width: 600px;
+  }
+
+  .todo-list {
+    padding: 0 1.5em 2em;
+  }
+
+  .todo {
+    padding: 2em 0 0;
+  }
+
+  .todo button:hover {
+    background-color: white;
+    color: var(--color03);
+  }
+
+  .todo-form input {
+    margin-bottom: 1em;
+  }
+
+  select {
+    cursor: pointer;
+  }
+
+  button {
+    cursor: pointer;
+    transition: .3s;
+  }
+
+  .filter-options .filter-buttons button:hover {
+    background-color: white;
+    color: var(--color03);
+  }
+
+  .todo-form button:hover {
+    background-color: white;
+    color: var(--color03);
+  }
 }
