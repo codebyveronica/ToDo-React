@@ -1,7 +1,7 @@
 const Search = ({ search, setSearch }) => {
   return (
     <div className="search">
-      <h2>Search:</h2>
+      <label>Search</label>
       <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} />
     </div>
   );
