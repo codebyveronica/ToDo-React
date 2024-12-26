@@ -62,7 +62,7 @@ The application will run at `http://localhost:3000`.
 
 
 ## Author
-- **Your Name**  
+- **CodeByVeronica**  
 - [LinkedIn](https://linkedin.com/in/verônica-souza-b8096533a/)  
 - [GitHub](https://github.com/codebyveronica)  
 
