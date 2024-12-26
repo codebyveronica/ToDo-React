@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import ToDo from "./components/ToDo";
 import ToDoForm from "./components/ToDoForm";
@@ -8,25 +8,14 @@ import Filter from "./components/Filter";
 import "./App.css";
 
 function App() {
-  const [todos, setTodos] = useState([
-    {
-      id: 1,
-      text: "Terminar a ToDo List com React",
-      category: "Estudos",
-      isCompleted: false,
-    },
-    {
-      id: 2,
-      text: "Jogar Wild Rift com amigo",
-      category: "Pessoal",
-      isCompleted: false,
-    },
-  ]);
+  const storedTodos = JSON.parse(localStorage.getItem("todos"));
 
+  const [todos, setTodos] = useState(storedTodos);
+  
   const [search, setSearch] = useState("");
-
+  
   const [filter, setFilter] = useState("All");
-
+  
   const [sort, setSort] = useState("Asc");
 
   const addToDo = (text, category) => {
@@ -59,11 +48,15 @@ function App() {
     setTodos(newTodos);
   };
 
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
+
   return (
     <div>
       <h1>TO DO</h1>
       <Search search={search} setSearch={setSearch} />
-      
+
       <div className="todo-list">
         {todos
           .filter((todo) =>
