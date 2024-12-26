@@ -11,11 +11,11 @@ function App() {
   const storedTodos = JSON.parse(localStorage.getItem("todos"));
 
   const [todos, setTodos] = useState(storedTodos);
-  
+
   const [search, setSearch] = useState("");
-  
+
   const [filter, setFilter] = useState("All");
-  
+
   const [sort, setSort] = useState("Asc");
 
   const addToDo = (text, category) => {
@@ -25,7 +25,7 @@ function App() {
         id: Math.floor(Math.random() * 10000),
         text,
         category,
-        completed: false,
+        isCompleted: false,
       },
     ];
 
